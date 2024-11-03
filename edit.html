@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit data by sheryn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #title {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 id="title">Edit Data</h2>
+        <form action="/pgweb/acara9/index.php" onsubmit="return validateForm()" method="post">
+        <label for="kecamatan">Kecamatan:</label><br>
+        <input type="text" id="kecamatan" name="kecamatan" value=""><br>
+
+        <label for="longitude">Longitude:</label><br>
+        <input type="double" id="longitude" name="longitude" value=""><br>
+
+        <label for="latitude">Latitude:</label><br>
+        <input type="double" id="latitude" name="latitude" value=""><br>
+
+        <label for="luas">Luas:</label><br>
+        <input type="double" id="luas" name="luas" value=""><br>
+
+        <label for="jumlah_penduduk">Jumlah Penduduk:</label><br>
+        <input type="int" id="jumlah_penduduk" name="jumlah_penduduk" value=""><br><br>
+
+            <button type="submit" name="edit" class="btn btn-primary">Edit</button>
+        </form>
+    <script>
+
+        function validateForm() {
+
+            let luas = document.getElementById("luas").value;
+            let text = "";
+            if (isNaN(luas) || luas < 1) {
+                text = "Data luas harus angka dan tidak boleh bernilai negatif";
+                // stop the form submission
+                event.preventDefault();
+            }
+            document.getElementById("informasi").innerHTML = text;
+        }
+    </script>
+</body>
+
+</html>
